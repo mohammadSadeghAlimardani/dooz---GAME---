@@ -1,0 +1,180 @@
+/* GENERAL STYLES */
+@font-face {
+    font-family: 'Avenir-Light';
+    src: url('../fonts/Avenir\ Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Avenir-Medium';
+    src: url('../fonts/Avenir\ Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Avenir-Regular';
+    src: url('../fonts/Avenir\ Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Pacifico-Regular';
+    src: url('../fonts/Pacifico-Regular.ttf') format('truetype');
+}
+body{
+    font-family: 'Avenir-Regular';
+    width: 100%;
+    height: 100vh;
+    background-color: #58B9EC;
+    display: grid;
+    place-items: center;
+}
+
+/* ALERT */
+.alert{
+    position: fixed;
+    background-color: red;
+    text-align: center;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    transition: all 0.5s;
+    padding: 1rem 0;
+}
+.alert.show{
+    transform: translateY(0);
+}
+.alert p{
+    color: white;
+}
+
+/* CHOOSE SIGN */
+.chooseSign{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 50;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    transition: all 0.5s;
+}
+.chooseSign.hide{
+    transform: scale(0);
+}
+.chooseSign section{
+    padding: 2rem;
+    width: 40%;
+    background-color: white;
+}
+@media screen and (max-width:768px){
+    .chooseSign section{
+        width: 70%;
+    }
+}
+.chooseSign section h2{
+    margin-bottom: 2rem;
+}
+.chooseSign section div{
+    display: flex;
+    gap: 0 0.5rem;
+    align-items: center;
+    margin: 1rem 0;
+}
+.chooseSign section div label{
+    width: 2rem;
+    height: 2rem;
+}
+.chooseSign section div label i{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+}
+
+/* STYLE OF BUTTON */
+.btn{
+    border-radius: 5px;
+    border: none;
+    font-size: 1.05rem;
+    font-family: 'Avenir-Regular';
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: all 0.5s;
+}
+.btn.btn-info{
+    border: 1px solid #58B9EC;
+    background-color: #58B9EC;
+    color: white;
+}
+.btn.btn-info:hover{
+    background-color: #2687ba;
+}
+
+/* GAME CONTAINER */
+.game-container{
+    position: relative;
+    background-color: #58B9EC;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.game-container .box{
+    box-shadow: inset 0 0 0 2px #58B9EC;
+    position: relative;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 10px;
+    width: 6rem;
+    height: 6rem;
+    display: grid;
+    place-items: center;
+}
+.game-container .box i{
+    position: absolute;
+    transform: scale(0);
+    font-size: 4rem;
+    color: #58B9EC;
+    transition: all 0.5s;
+}
+.game-container .box i.show{
+    transform: scale(1) rotateY(180deg) rotateX(180deg);
+}
+
+/* FINISH GAME */
+.victory-message, .equal-message{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 150;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: grid;
+    place-items: center;
+    transition: all 0.5s;
+    transform: scale(0);
+}
+.victory-message.show, .equal-message.show{
+    transform: scale(1);
+}
+.victory-message section, .equal-message section{
+    width: 60%;
+    text-align: center;
+    padding: 4rem 0;
+    background-color: white;
+}
+@media screen and (max-width: 768px){
+    .victory-message section, .equal-message section{
+        width: 75%;
+    }
+}
+@media screen and (max-width: 567px){
+    .victory-message section, .equal-message section{
+        width: 85%;
+    }
+}
+.victory-message h2, .equal-message h2{
+    font-family: 'Pacifico-Regular';
+    font-size: 2rem;
+}
